@@ -22,7 +22,7 @@
 # definition file).
 #
 
-$(call inherit-product, vendor/oneplus/cheeseburger/cheeseburger-vendor.mk)
+#$(call inherit-product, vendor/oneplus/cheeseburger/cheeseburger-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -318,4 +318,4 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
 
 # Inherit from oppo-common
-$(call inherit-product, device/oppo/common/common.mk)
+#$(call inherit-product, device/oppo/common/common.mk)
