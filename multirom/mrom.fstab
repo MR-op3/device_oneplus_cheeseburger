@@ -1,0 +1,10 @@
+/firmware       vfat    /dev/block/sde10
+/boot           emmc    /dev/block/sde19
+/cache          ext4    /dev/block/sda3
+/recovery       emmc    /dev/block/sde22
+/system         ext4    /dev/block/sde21
+/system_image	emmc    /dev/block/sde21
+/data           ext4    /dev/block/sda13
+/persist        ext4    /dev/block/sda2
+/misc           emmc    /dev/block/sda4
+/dsp            emmc    /dev/block/sde11

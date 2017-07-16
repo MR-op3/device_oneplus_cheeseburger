@@ -145,9 +145,6 @@ TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 # CNE and DPM
 BOARD_USES_QCNE := true
 
-# Crypto
-TARGET_HW_DISK_ENCRYPTION := true
-
 # Display
 BOARD_USES_ADRENO := true
 
@@ -196,7 +193,10 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 32212254720
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 
-TARGET_USERIMAGES_USE_EXT4 := true
+# Start MROM
+# Crypto
+#TARGET_HW_DISK_ENCRYPTION := true
+TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw/
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/recovery.fstab
@@ -204,13 +204,14 @@ TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
+#TARGET_USERIMAGES_USE_F2FS := true
 
 # TWRP specific build flags
 BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/module/g_android/parameters/file"
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXCLUDE_SUPERSU := true
@@ -219,6 +220,7 @@ TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_NTFS_3G := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_MAX_BRIGHTNESS := 255
+TW_DEFAULT_BRIGHTNESS := 100
 TW_MTP_DEVICE := "/dev/mtp_usb"
 TW_NO_USB_STORAGE := true
 TW_SCREEN_BLANK_ON_BOOT := true
@@ -226,10 +228,50 @@ TW_THEME := portrait_hdpi
 TW_THEME_LANDSCAPE := landscape_hdpi
 TW_UNMOUNT_FIRMWARE_ON_BOOT := true
 TWHAVE_SELINUX := true
+TW_NO_EXFAT_FUSE := true
 BOARD_SUPPRESS_EMMC_WIPE := true
 # Workaround for error copying vendor files to recovery ramdisk
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
+
+# MR config. MultiROM also uses parts of TWRP config
+TARGET_RECOVERY_IS_MULTIROM := true
+MR_NO_KEXEC := enabled
+MR_CONTINUOUS_FB_UPDATE := true
+MR_DPI := xhdpi
+MR_DPI_FONT := 340
+MR_USE_MROM_FSTAB := true
+MR_FSTAB := $(PLATFORM_PATH)/multirom/mrom.fstab
+MR_INPUT_TYPE := type_b
+MR_INIT_DEVICES := $(PLATFORM_PATH)/multirom/mr_init_devices.c
+MR_KEXEC_MEM_MIN := 0xAC000000
+MR_KEXEC_DTB := true
+MR_DEVICE_HOOKS := $(PLATFORM_PATH)/multirom/mr_hooks.c
+MR_DEVICE_HOOKS_VER := 4
+MR_DEVICE_VARIANTS := OnePlus5 cheeseburger oneplus5 op5 A5000
+#MR_USE_QCOM_OVERLAY := true
+#MR_QCOM_OVERLAY_HEADER := $(PLATFORM_PATH)/multirom/mr_qcom_overlay.h
+#MR_QCOM_OVERLAY_CUSTOM_PIXEL_FORMAT := MDP_RGBX_8888
+MR_ENCRYPTION := true
+NEW_ION_HEAP := true
+MR_QCOM_OVERLAY_HEAP_ID_MASK := 2
+
+# bootmenu
+DEVICE_RESOLUTION := 1080x1920
+MR_PIXEL_FORMAT := "RGBA_8888"
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+MR_DEV_BLOCK_BOOTDEVICE := true
+
+# Versioning
+#include $(PLATFORM_PATH)/multirom/MR_REC_VERSION.mk
+#BOARD_MKBOOTIMG_ARGS += --board mrom$(MR_REC_VERSION)
+#MR_REC_VERSION := $(shell date -u +%Y%m%d)-01
+#MR_DEVICE_SPECIFIC_VERSION := -GzR
+
+#Force populating /dev/block/platform/soc/1da4000.ufshc/by-name/
+#from the emmc
+#MR_POPULATE_BY_NAME_PATH := "/dev/block/platform/soc/1da4000.ufshc/by-name/"
+# MROM Ends here
 
 # RIL
 TARGET_RIL_VARIANT := caf
