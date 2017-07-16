@@ -1,11 +1,7 @@
-#ifndef _UAPI_MSM_MDP_H_
-#define _UAPI_MSM_MDP_H_
+#ifndef _MSM_MDP_H_
+#define _MSM_MDP_H_
 
-#ifndef __KERNEL__
-#include <stdint.h>
-#else
 #include <linux/types.h>
-#endif
 #include <linux/fb.h>
 
 #define MSMFB_IOCTL_MAGIC 'm'

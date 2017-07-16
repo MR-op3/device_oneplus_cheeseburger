@@ -199,7 +199,7 @@ BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw/
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/recovery/root/twrp.fstab
 TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
@@ -210,8 +210,8 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
-TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/module/g_android/parameters/file"
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
+#TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/module/g_android/parameters/file"
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXCLUDE_SUPERSU := true
@@ -228,7 +228,7 @@ TW_THEME := portrait_hdpi
 TW_THEME_LANDSCAPE := landscape_hdpi
 TW_UNMOUNT_FIRMWARE_ON_BOOT := true
 TWHAVE_SELINUX := true
-TW_NO_EXFAT_FUSE := true
+#TW_NO_EXFAT_FUSE := true
 BOARD_SUPPRESS_EMMC_WIPE := true
 # Workaround for error copying vendor files to recovery ramdisk
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -249,12 +249,12 @@ MR_KEXEC_DTB := true
 MR_DEVICE_HOOKS := $(PLATFORM_PATH)/multirom/mr_hooks.c
 MR_DEVICE_HOOKS_VER := 4
 MR_DEVICE_VARIANTS := OnePlus5 cheeseburger oneplus5 op5 A5000
-#MR_USE_QCOM_OVERLAY := true
-#MR_QCOM_OVERLAY_HEADER := $(PLATFORM_PATH)/multirom/mr_qcom_overlay.h
-#MR_QCOM_OVERLAY_CUSTOM_PIXEL_FORMAT := MDP_RGBX_8888
+MR_USE_QCOM_OVERLAY := true
+MR_QCOM_OVERLAY_HEADER := $(PLATFORM_PATH)/multirom/mr_qcom_overlay.h
+MR_QCOM_OVERLAY_CUSTOM_PIXEL_FORMAT := MDP_RGBX_8888
 MR_ENCRYPTION := true
 NEW_ION_HEAP := true
-MR_QCOM_OVERLAY_HEAP_ID_MASK := 2
+MR_QCOM_OVERLAY_HEAP_ID_MASK := 1
 
 # bootmenu
 DEVICE_RESOLUTION := 1080x1920
@@ -270,7 +270,7 @@ MR_DEV_BLOCK_BOOTDEVICE := true
 
 #Force populating /dev/block/platform/soc/1da4000.ufshc/by-name/
 #from the emmc
-#MR_POPULATE_BY_NAME_PATH := "/dev/block/platform/soc/1da4000.ufshc/by-name/"
+MR_POPULATE_BY_NAME_PATH := "/dev/block/platform/soc/1da4000.ufshc/by-name/"
 # MROM Ends here
 
 # RIL
