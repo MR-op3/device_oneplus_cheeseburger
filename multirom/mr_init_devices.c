@@ -15,28 +15,30 @@ const char *mr_init_devices[] =
 
     "/sys/bus/platform/drivers/i2c-msm-v2",
 
-    "/sys/block/sda*",
-    "/sys/block/sde*",
+    "/sys/devices/soc/1da4000.ufshc*",
+    "/sys/devices/soc/1da4000.ufshc/host0*",
+    "/sys/devices/soc/1da4000.ufshc/host0/target0:0:0/0:0:0:4/block/sda*",
+    "/sys/devices/soc/1da4000.ufshc/host0/target0:0:0/0:0:0:4/block/sde*",
 
     // boot and data
-    "/sys/block/sde/sde19", //boot
-    "/sys/block/sda/sda13", //data
-    "/sys/block/sde/sde22", //recovery
-    "/sys/block/sde/sda4", //misc
+    "/sys/devices/soc/1da4000.ufshc/host0/target0:0:0/0:0:0:4/block/sde/sde19", //boot
+    "/sys/devices/soc/1da4000.ufshc/host0/target0:0:0/0:0:0:0/block/sda/sda13", //data
+    "/sys/devices/soc/1da4000.ufshc/host0/target0:0:0/0:0:0:4/block/sde/sde22", //recovery
+    "/sys/devices/soc/1da4000.ufshc/host0/target0:0:0/0:0:0:0/block/sda/sda4", //misc
 
     // system and cache
-    "/sys/block/sde/sde21", //system
-    "/sys/block/sda/sda3", //cache
+    "/sys/devices/soc/1da4000.ufshc/host0/target0:0:0/0:0:0:4/block/sde/sde21", //system
+    "/sys/devices/soc/1da4000.ufshc/host0/target0:0:0/0:0:0:0/block/sda/sda3", //cache
 
     // Mount persist and firmware
-    "/sys/block/sda/sda2", // persist
-    "/sys/block/sde/sde10", // firmware
+    "/sys/devices/soc/1da4000.ufshc/host0/target0:0:0/0:0:0:0/block/sda/sda2", // persist
+    "/sys/devices/soc/1da4000.ufshc/host0/target0:0:0/0:0:0:4/block/sde/sde10", // firmware
 
     // frp
-    "/sys/block/sda/sda6", //frp
-    "/sys/block/sda/sda12", //config
+    "/sys/devices/soc/1da4000.ufshc/host0/target0:0:0/0:0:0:0/block/sda/sda6", //frp
+    "/sys/devices/soc/1da4000.ufshc/host0/target0:0:0/0:0:0:0/block/sda/sda12", //config
 
-    "/sys/block/sde/sde11", // DSP
+    "/sys/devices/soc/1da4000.ufshc/host0/target0:0:0/0:0:0:4/block/sde/sde11", // DSP
 
     "/sys/bus/mmc*",
     "/sys/bus/mmc/drivers/mmcblk",
