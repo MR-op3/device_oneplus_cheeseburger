@@ -14,30 +14,23 @@
 # limitations under the License.
 #
 
-# Release name
-PRODUCT_RELEASE_NAME := cheeseburger
-
-$(call inherit-product, build/target/product/embedded.mk)
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
-
 # Inherit from cheeseburger device
 $(call inherit-product, device/oneplus/cheeseburger/device.mk)
 
-# Time Zone data for recovery
-PRODUCT_COPY_FILES += \
-    bionic/libc/zoneinfo/tzdata:recovery/root/system/usr/share/zoneinfo/tzdata
+# Inherit some common Tipsy stuff.
+#$(call inherit-product, vendor/tipsy/config/common_full_phone.mk)
 
-## Device identifier. This must come after all inclusions
-PRODUCT_NAME := omni_cheeseburger
+PRODUCT_NAME := tipsy_cheeseburger
 PRODUCT_DEVICE := cheeseburger
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_BRAND := OnePlus
 PRODUCT_MODEL := ONEPLUS A5000
+
+PRODUCT_GMS_CLIENTID_BASE := android-oneplus
 
 TARGET_VENDOR_PRODUCT_NAME := OnePlus5
 TARGET_VENDOR_DEVICE_NAME := OnePlus5

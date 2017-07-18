@@ -1,3 +1,3 @@
-add_lunch_combo omni_cheeseburger-eng
-add_lunch_combo omni_cheeseburger-userdebug
+add_lunch_combo tipsy_cheeseburger-eng
+add_lunch_combo tipsy_cheeseburger-userdebug
 
