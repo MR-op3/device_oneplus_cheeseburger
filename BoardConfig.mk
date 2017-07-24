@@ -268,7 +268,7 @@ MR_DEV_BLOCK_BOOTDEVICE := true
 include $(PLATFORM_PATH)/multirom/MR_REC_VERSION.mk
 BOARD_MKBOOTIMG_ARGS += --board mrom$(MR_REC_VERSION)
 MR_REC_VERSION := $(shell date -u +%Y%m%d)-01
-MR_DEVICE_SPECIFIC_VERSION := -GzR
+MR_DEVICE_SPECIFIC_VERSION := g
 
 #Force populating /dev/block/platform/soc/1da4000.ufshc/by-name/
 #from the emmc
