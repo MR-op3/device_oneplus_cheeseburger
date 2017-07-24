@@ -249,7 +249,7 @@ MR_KEXEC_MEM_MIN := 0xAC000000
 MR_KEXEC_DTB := true
 MR_DEVICE_HOOKS := $(PLATFORM_PATH)/multirom/mr_hooks.c
 MR_DEVICE_HOOKS_VER := 4
-MR_DEVICE_VARIANTS := OnePlus5 cheeseburger oneplus5 op5 A5000
+MR_DEVICE_VARIANTS := OnePlus5, cheeseburger, oneplus5, op5, A5000, OnePlus 5
 MR_USE_QCOM_OVERLAY := true
 MR_QCOM_OVERLAY_HEADER := $(PLATFORM_PATH)/multirom/mr_qcom_overlay.h
 MR_QCOM_OVERLAY_CUSTOM_PIXEL_FORMAT := MDP_RGBX_8888
@@ -267,7 +267,7 @@ MR_DEV_BLOCK_BOOTDEVICE := true
 include $(PLATFORM_PATH)/multirom/MR_REC_VERSION.mk
 BOARD_MKBOOTIMG_ARGS += --board mrom$(MR_REC_VERSION)
 MR_REC_VERSION := $(shell date -u +%Y%m%d)-01
-MR_DEVICE_SPECIFIC_VERSION := -GzR
+MR_DEVICE_SPECIFIC_VERSION := g
 
 #Force populating /dev/block/platform/soc/1da4000.ufshc/by-name/
 #from the emmc
