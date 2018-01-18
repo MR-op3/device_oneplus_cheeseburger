@@ -231,6 +231,7 @@ TW_UNMOUNT_FIRMWARE_ON_BOOT := true
 #TWHAVE_SELINUX := true
 TW_NO_LEGACY_PROPS := 1
 #TW_NO_EXFAT_FUSE := true
+TW_IGNORE_MISC_WIPE_DATA := true
 BOARD_SUPPRESS_EMMC_WIPE := true
 BOARD_SUPPRESS_SECURE_ERASE := true
 # Workaround for error copying vendor files to recovery ramdisk
