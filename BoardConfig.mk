@@ -232,6 +232,7 @@ TW_UNMOUNT_FIRMWARE_ON_BOOT := true
 TW_NO_LEGACY_PROPS := 1
 #TW_NO_EXFAT_FUSE := true
 BOARD_SUPPRESS_EMMC_WIPE := true
+BOARD_SUPPRESS_SECURE_ERASE := true
 # Workaround for error copying vendor files to recovery ramdisk
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
