@@ -32,7 +32,7 @@ TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
 BOARD_VENDOR := oneplus
 
 # Assertions
-TARGET_OTA_ASSERT_DEVICE := OnePlus5,cheeseburger,oneplus5,op5,A5000
+TARGET_OTA_ASSERT_DEVICE := OnePlus5,cheeseburger,oneplus5,op5,A5000,OnePlus 5
 
 # Use Snapdragon LLVM, if available
 TARGET_USE_SDCLANG := true
@@ -229,6 +229,7 @@ TW_THEME := portrait_hdpi
 TW_THEME_LANDSCAPE := landscape_hdpi
 TW_UNMOUNT_FIRMWARE_ON_BOOT := true
 TWHAVE_SELINUX := true
+TW_NO_LEGACY_PROPS := 1
 #TW_NO_EXFAT_FUSE := true
 BOARD_SUPPRESS_EMMC_WIPE := true
 # Workaround for error copying vendor files to recovery ramdisk
@@ -249,7 +250,7 @@ MR_KEXEC_MEM_MIN := 0xAC000000
 MR_KEXEC_DTB := true
 MR_DEVICE_HOOKS := $(PLATFORM_PATH)/multirom/mr_hooks.c
 MR_DEVICE_HOOKS_VER := 4
-MR_DEVICE_VARIANTS := OnePlus5 cheeseburger oneplus5 op5 A5000
+MR_DEVICE_VARIANTS := OnePlus5, cheeseburger, oneplus5, op5, A5000, OnePlus 5
 MR_USE_QCOM_OVERLAY := true
 MR_QCOM_OVERLAY_HEADER := $(PLATFORM_PATH)/multirom/mr_qcom_overlay.h
 MR_QCOM_OVERLAY_CUSTOM_PIXEL_FORMAT := MDP_RGBX_8888
