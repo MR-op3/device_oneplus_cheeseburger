@@ -1,6 +1,9 @@
 on init
     write /proc/touchpanel/double_tap_enable 1
 
+    # enable USB OTG support
+    write /sys/class/power_supply/usb/otg_switch 1
+
 on fs
     wait /dev/block/platform/soc/1da4000.ufshc
     symlink /dev/block/platform/soc/1da4000.ufshc /dev/block/bootdevice
